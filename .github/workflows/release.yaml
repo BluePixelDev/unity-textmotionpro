@@ -32,16 +32,27 @@ jobs:
     # Create .tgz tarball of the package folder
     - name: Pack UPM package
       run: |
-        tar -czf "../${{ steps.pkg.outputs.pkg_filename }}" *
+        tar -czf "${{ steps.pkg.outputs.pkg_filename }}" *
     
-    - name: Create Release
+    - name: Create local tag
+      run: git tag "v${{ steps.pkg.outputs.pkg_version }}"
+
+    - name: Push tag to GitHub
+      run: git push origin "v${{ steps.pkg.outputs.pkg_version }}"
+
+    - name: Create Draft Release
       uses: softprops/action-gh-release@v2
       with:
-        files: ${{ steps.pkg.outputs.pkg_filename }}
-        tag_name: ${{ github.ref_name }}
-        name: Release ${{ steps.pkg.outputs.pkg_version }}
+        tag_name: "v${{ steps.pkg.outputs.pkg_version }}"
+        name: "Release v${{ steps.pkg.outputs.pkg_version }}"
         body: |
           🎉 New release of ${{ steps.pkg.outputs.pkg_name }}
           Version: ${{ steps.pkg.outputs.pkg_version }}
+
+          ## Changelog
+          - Feature A
+          - Fix B
+        files: ${{ steps.pkg.outputs.pkg_filename }},RELEASE_NOTES.md
+        draft: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
