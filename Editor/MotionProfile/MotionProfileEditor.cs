@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,45 +7,26 @@ namespace BP.TextMotionPro.Editor
     [CustomEditor(typeof(MotionProfile))]
     public class MotionProfileEditor : UnityEditor.Editor
     {
-        [SerializeField] private VisualTreeAsset mainTreeAsset;
-        private MotionProfile profile;
-
-        private void OnEnable()
-        {
-            profile = (MotionProfile)target;
-        }
-
+        [SerializeField] private VisualTreeAsset treeAsset;
         public override VisualElement CreateInspectorGUI()
         {
             var root = new VisualElement();
-            mainTreeAsset.CloneTree(root);
+            treeAsset.CloneTree(root);
+
+            var currentTab = serializedObject.FindProperty("seletedTabIndex");
+            var tabView = root.Q<TabView>();
+
+            tabView.selectedTabIndex = currentTab.intValue;
+            tabView.activeTabChanged += (s, e) =>
+            {
+                currentTab.intValue = tabView.selectedTabIndex;
+                serializedObject.ApplyModifiedProperties();
+                serializedObject.Update();
+            };
+
+            var listAliases = root.Q<ListView>("list-aliases");
+
             return root;
-        }
-
-        public void UpdateAssets()
-        {
-            // Path of the main file.
-            string path = AssetDatabase.GetAssetPath(profile);
-
-            // Gets all components.
-            var components = profile.GetAllComponents();
-            var currentSubAssets = AssetDatabase.LoadAllAssetRepresentationsAtPath(path);
-            var componentsToRemove = new List<UnityEngine.Object>(currentSubAssets);
-
-            foreach (var component in components)
-            {
-                if (!AssetDatabase.IsSubAsset(component) && !AssetDatabase.Contains(component))
-                {
-                    AssetDatabase.AddObjectToAsset(component, path);
-                }
-                componentsToRemove.Remove(component);
-            }
-
-            foreach (var componentToRemove in componentsToRemove)
-            {
-                AssetDatabase.RemoveObjectFromAsset(componentToRemove);
-            }
-            AssetDatabase.SaveAssets();
         }
     }
 }

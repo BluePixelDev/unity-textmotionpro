@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: a2c50929fc641884c9029dfe3ff606d2
+guid: b89d5538285dfda4680f15bfc3ed8633
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - mainTreeAsset: {fileID: 9197481963319205126, guid: 78d36fe728c57a34ca20f72a50d6e96d, type: 3}
-  - effectTreeAsset: {fileID: 9197481963319205126, guid: 93f36a28fa20e7c47b7fddaffe2c77bc, type: 3}
+  - treeAsset: {fileID: 9197481963319205126, guid: 89185849d3c32f242b7b9d8e75e82eb6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

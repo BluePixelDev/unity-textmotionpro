@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:TextField label="Key" placeholder-text="Enter Key" binding-path="key" name="text-key" />
+    <engine:VisualElement name="editor-toolkit" style="flex-grow: 1;" />
+    <engine:IMGUIContainer name="editor-imgui" />
+</engine:UXML>

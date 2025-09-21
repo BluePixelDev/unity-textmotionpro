@@ -1,0 +1,3 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:ListView binding-path="list" virtualization-method="DynamicHeight" item-template="project://database/Assets/Plugins/TypeUp/Editor/TextComponentCollection/UXML_TextComponentCollection_Item.uxml?fileID=9197481963319205126&amp;guid=5245424cd354b2f4f957167e537c24bb&amp;type=3#UXML_TextComponentCollection_Item" show-border="true" allow-add="false" allow-remove="false" show-bound-collection-size="false" />
+</engine:UXML>

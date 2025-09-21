@@ -2,11 +2,9 @@
     "name": "BP.TextMotionPro.Editor",
     "rootNamespace": "BP.TextMotionPro.Editor",
     "references": [
-        "GUID:a87b08c5284c4f8448de7afcf0272260"
+        "GUID:dffe84e4e470dd840899675d9a2d6841"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

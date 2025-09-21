@@ -1,18 +1,26 @@
-<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/TextMotionPro%20Pro/Editor/MotionProfile/USS_MotionProfile.uss?fileID=7433441132597879392&amp;guid=78f264ab9f905c54baea00c777d4582a&amp;type=3#USS_MotionProfile" />
-    <engine:VisualElement name="Settings" style="flex-grow: 0; flex-shrink: 0; flex-basis: auto; margin-bottom: 10px;">
-        <engine:Label text="Transition Fallback" name="Label" style="-unity-font-style: bold;" />
-        <engine:DropdownField label="In" />
-        <engine:DropdownField label="Out" />
-    </engine:VisualElement>
-    <engine:VisualElement name="Effect-Components" style="flex-grow: 0; flex-shrink: 0; margin-bottom: 10px;">
-        <engine:Label text="Effects" style="-unity-text-align: upper-center; -unity-font-style: bold;" />
-        <editor:PropertyField binding-path="tagComponents" />
-        <engine:Button text="Add" />
-    </engine:VisualElement>
-    <engine:VisualElement name="Transition-Components" style="flex-grow: 0; flex-shrink: 0; margin-bottom: 10px;">
-        <engine:Label text="Transitions" style="-unity-text-align: upper-center; -unity-font-style: bold;" />
-        <editor:PropertyField binding-path="transitionComponents" />
-        <engine:Button text="Add" />
-    </engine:VisualElement>
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:GroupBox name="title-group">
+        <ui:Label text="&lt;b&gt;Text Motion&lt;/b&gt; &lt;size=20&#10;&#10;&gt;Pro" style="-unity-text-align: upper-center; font-size: 26px; -unity-font-style: normal;" />
+        <ui:Label text="Made by &lt;b&gt;Bluepixel" style="-unity-text-align: upper-center; color: rgba(210, 210, 210, 0.75);" />
+    </ui:GroupBox>
+    <ui:TabView>
+        <ui:Tab label="Aliases">
+            <ui:GroupBox>
+                <ui:ListView binding-path="tagAliases" reorderable="true" show-bound-collection-size="false" allow-remove="true" show-border="true" virtualization-method="DynamicHeight" horizontal-scrolling="false" enabled="true" focusable="true" show-add-remove-footer="true" show-alternating-row-backgrounds="ContentOnly" name="list-aliases" item-template="project://database/Assets/Plugins/TypeUp/Editor/MotionProfile/UXML_MotionProfile_Item_Alias.uxml?fileID=9197481963319205126&amp;guid=c8eef6f0cda40d545a774afeddfa4c00&amp;type=3#UXML_MotionProfile_Item_Alias" />
+            </ui:GroupBox>
+        </ui:Tab>
+        <ui:Tab label="Effects">
+            <ui:GroupBox name="group-effects">
+                <uie:PropertyField binding-path="tagEffects" focusable="true" />
+                <ui:Button text="Add" name="btn-add-effect" />
+            </ui:GroupBox>
+        </ui:Tab>
+        <ui:Tab label="Transitions">
+            <ui:GroupBox>
+                <ui:DropdownField label="Default In" />
+                <ui:DropdownField label="Default Out" />
+                <ui:Button text="Add" />
+            </ui:GroupBox>
+        </ui:Tab>
+    </ui:TabView>
+</ui:UXML>
