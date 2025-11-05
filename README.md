@@ -8,7 +8,6 @@
 **TextMotion Pro** is a modular and performant text animation system for [TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest). It allows you to author complex, character-based text animations using reusable `ScriptableObjects`.
 
 ## To Do
-- [ ] Use JOB system to increase performance
 - [ ] Add text transition system
 - [ ] Effect escaping using `\`
 - [ ] Add PreProcess Aliases
